@@ -1,0 +1,11 @@
+{
+    "email": {
+        "sender": "your_email@example.com",
+        "password": "your_password"
+    },
+    "smtp": {
+        "server": "smtp.example.com",
+        "port": 587
+    },
+    "email_subject": "Your Email Subject"
+}
