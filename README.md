@@ -22,5 +22,6 @@ This project is a Python-based tool designed to scrape emails from a specified w
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/mrdevil786/Web-Scraper.git
+   cd Web-Scraper
+   ```
