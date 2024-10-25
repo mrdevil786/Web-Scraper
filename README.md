@@ -20,14 +20,14 @@ This project is a Python-based tool designed to scrape emails from a specified w
 
 ## Installation
 
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone https://github.com/mrdevil786/Web-Scraper.git
    cd Web-Scraper
    ```
 ## Run
 
-1. Clone the repository:
+Run the code:
    ```bash
    python email_scraper.py
    ```
