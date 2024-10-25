@@ -1,21 +1,12 @@
 import subprocess
 import sys
 import json
-import requests
-from bs4 import BeautifulSoup
-import re
-import time
-from urllib.parse import urljoin, urlparse
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-import logging
 import os
-import concurrent.futures
+import logging
 import importlib
-from email_validator import validate_email, EmailNotValidError
+import concurrent.futures
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+required_modules = ['requests', 'bs4', 'email_validator']
 
 def install(package):
     try:
@@ -31,8 +22,19 @@ def check_and_install_modules(required_modules):
             logging.info(f"{module} not found. Installing...")
             install(module)
 
-required_modules = ['requests', 'bs4', 'email_validator']
 check_and_install_modules(required_modules)
+
+import requests
+from bs4 import BeautifulSoup
+import re
+import time
+from urllib.parse import urljoin, urlparse
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email_validator import validate_email, EmailNotValidError
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_config(filename='config.json'):
     if not os.path.exists(filename):
@@ -122,6 +124,8 @@ def crawl_website(start_url, visited, emails):
                         queue.append(next_url)
             except requests.RequestException as e:
                 logging.error(f"Failed to retrieve {url}: {e}")
+
+    print(f"\nTotal unique emails found: {len(emails)}")
 
 def load_email_template(template_file='email_template.html'):
     if not os.path.exists(template_file):
@@ -251,4 +255,5 @@ def main():
             print("Invalid choice. Please choose again.")
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     main()
