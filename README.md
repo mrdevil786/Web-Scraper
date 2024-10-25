@@ -25,10 +25,6 @@ This project is a Python-based tool designed to scrape emails from a specified w
    git clone https://github.com/mrdevil786/Web-Scraper.git
    cd Web-Scraper
    ```
-
-   [![GitHub Logo](https://github.com/favicon.ico)](https://github.com/mrdevil786)
-
-
 ## Run
 
 1. Clone the repository:
