@@ -29,5 +29,5 @@ Clone the repository:
 
 Run the code:
    ```bash
-   python email_scraper.py
+   python main.py
    ```
