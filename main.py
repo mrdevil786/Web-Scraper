@@ -1,8 +1,18 @@
 import logging
+import shutil
+import os
 from config import load_config, save_to_json
 from scraper import crawl_website
 from email_sender import send_emails_in_batches
 from utils import load_existing_emails
+
+def copy_config_example():
+    if not os.path.exists('config.json') and os.path.exists('config.example.json'):
+        try:
+            shutil.copy('config.example.json', 'config.json')
+            logging.info('config.example.json copied to config.json')
+        except Exception as e:
+            logging.error(f"Error copying config.example.json to config.json: {e}")
 
 def merge_emails(new_emails, filename='emails.json'):
     existing_emails = load_existing_emails(filename)
@@ -10,6 +20,7 @@ def merge_emails(new_emails, filename='emails.json'):
     save_to_json(combined_emails, filename)
 
 def main():
+    copy_config_example()
     config = load_config()
     if not config:
         logging.error("Exiting program due to configuration loading failure.")
